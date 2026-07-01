@@ -1,11 +1,10 @@
 function sistemaBiblioteca(listaAutores, autorBusca) {
-    // O .map() garante que todos os autores fiquem sem espaços extras nas pontas
+    // O .map() limpa os espaços invisíveis de TODOS os autores logo no início
     const autores = listaAutores.split(",").map(autor => autor.trim());
 
-    // Agora a impressão e a busca vão funcionar perfeitamente
     autores.forEach(autor => console.log(autor));
 
-    if (autores.includes(autorBusca)) {
+    if (autores.includes(autorBusca.trim())) { // .trim() aqui previne erros caso a busca venha com espaço
         console.log("\nAutor encontrado");
     } else {
         console.log("\nAutor não encontrado");
@@ -24,4 +23,4 @@ console.log("--- Saída 1 ---");
 sistemaBiblioteca("Machado de Assis,Clarice Lispector,Monteiro Lobato", "Machado de Assis");
 
 console.log("\n--- Saída 2 ---");
-sistemaBiblioteca("J. K. Rowling,J. R. R. Tolkien", "George R. R. Martin");
+sistemaBiblioteca("J. K. Rowling, J. R. R. Tolkien", "George R. R. Martin");
