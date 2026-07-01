@@ -1,0 +1,32 @@
+function gerenciarMatriculas(disciplinas) {
+    console.log(disciplinas.join("\n"));
+    console.log(`\nTotal: ${disciplinas.length}\n`);
+    
+    if (disciplinas.includes("JavaScript")) {
+        console.log("Aluno cursa JavaScript\n");
+    }
+    
+    disciplinas.push("Algoritmos");
+    
+    for (let i = 0; i < disciplinas.length; i++) {
+        const disciplina = disciplinas[i];
+        
+        if (disciplina === "") {
+            continue;
+        }
+        
+        if (disciplina === "TCC") {
+            console.log("TCC");
+            console.log("\nLaço interrompido");
+            break;
+        }
+        
+        console.log(disciplina);
+    }
+}
+
+console.log("--- Saída 1 ---");
+gerenciarMatriculas(["HTML", "CSS", "JavaScript"]);
+
+console.log("\n--- Saída 2 ---");
+gerenciarMatriculas(["Banco de Dados", "", "TCC", "Redes"]);
