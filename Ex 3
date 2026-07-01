@@ -1,7 +1,9 @@
 function sistemaBiblioteca(listaAutores, autorBusca) {
-    const autores = listaAutores.split(",");
+    // O .map() garante que todos os autores fiquem sem espaços extras nas pontas
+    const autores = listaAutores.split(",").map(autor => autor.trim());
 
-    autores.forEach(autor => console.log(autor.trim()));
+    // Agora a impressão e a busca vão funcionar perfeitamente
+    autores.forEach(autor => console.log(autor));
 
     if (autores.includes(autorBusca)) {
         console.log("\nAutor encontrado");
@@ -13,7 +15,7 @@ function sistemaBiblioteca(listaAutores, autorBusca) {
         return `Livro: ${titulo} | Autor: ${autor}`;
     };
     
-    console.log(formatarLivro("Dom Casmurro", "Machado de Assis"));
+    console.log("\n" + formatarLivro("Dom Casmurro", "Machado de Assis"));
 
     console.log("\nLista de Autores: " + autores.join(", "));
 }
