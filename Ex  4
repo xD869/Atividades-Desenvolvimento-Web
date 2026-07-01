@@ -1,0 +1,25 @@
+function calcularGastos(listaGastos) {
+    let total = 0;
+
+    for (let valorStr of listaGastos) {
+        let valorNumerico = parseFloat(valorStr);
+
+        if (!isNaN(valorNumerico)) {
+            total += valorNumerico;
+        }
+    }
+
+    console.log(`Total: R$ ${total.toFixed(2).replace(/\.00$/, "")}`);
+
+    if (total > 2000) {
+        console.log("Limite ultrapassado");
+    } else {
+        console.log("Gastos dentro do limite");
+    }
+}
+
+console.log("--- Saída 1 ---");
+calcularGastos(["500", "350.50", "1000"]);
+
+console.log("\n--- Saída 2 ---");
+calcularGastos(["800", "900", "700"]);
