@@ -1,0 +1,47 @@
+const produtos = [
+  {
+    nome: "Monitor",
+    categoria: "Informática",
+    preco: "899.90",
+    estoque: 5
+  },
+  {
+    nome: "Cadeira",
+    categoria: "Escritório",
+    preco: "450",
+    estoque: 30
+  }
+];
+
+function exibirProdutos(lista) {
+  lista.forEach((p, index) => {
+  
+    const precoNum = parseFloat(p.preco);
+
+    if (isNaN(precoNum)) {
+      console.log(`Produto ${p.nome}: Preço inválido.`);
+      return;
+    }
+
+    console.log(`Produto: ${p.nome}`);
+    console.log(`Categoria: ${p.categoria}`);
+    console.log(`Preço: R$ ${+precoNum}`); // O sinal + remove decimais desnecessários
+    console.log(""); 
+
+    console.log(p.estoque < 10 ? "Estoque baixo" : "Estoque adequado");
+    console.log("");
+
+    if (index === 0) {
+      console.log(JSON.stringify(Object.keys(p)));
+      console.log("");
+    }
+
+    for (let chave in p) {
+      console.log(`${chave}: ${typeof p[chave]}`);
+    }
+    console.log("-------------------");
+    */
+  });
+}
+
+exibirProdutos(produtos);
