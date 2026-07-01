@@ -1,0 +1,35 @@
+function processarEvento(evento) {
+    console.log(`Evento: ${evento.nome}`);
+
+    if ("local" in evento) {
+        console.log(`Local: ${evento.local}`);
+    }
+
+    console.log(`\n${evento.data.toLocaleDateString("pt-BR")}\n`);
+    console.log(`Participantes: ${evento.participantes.length}`);
+    if (evento.participantes.length > 0) {
+        console.log(`\nLocal cadastrado: ${"local" in evento}`);
+    } else {
+        console.log("\nNenhum participante cadastrado");
+    }
+}
+
+const evento1 = {
+    nome: "Semana da Tecnologia",
+    local: "Auditório",
+    data: new Date("2026-08-20"),
+    participantes: ["Ana", "Carlos", "Marcos"]
+};
+
+const evento2 = {
+    nome: "Workshop Angular",
+    local: "Laboratório 5",
+    data: new Date("2026-09-10"),
+    participantes: []
+};
+
+console.log("\n--- Saída 1 ---");
+processarEvento(evento1);
+
+console.log("\n--- Saída 2 ---");
+processarEvento(evento2);
