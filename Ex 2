@@ -1,32 +1,36 @@
 function gerenciarMatriculas(disciplinas) {
-    console.log(disciplinas.join("\n"));
-    console.log(`\nTotal: ${disciplinas.length}\n`);
+    // Exibe o total inicial de disciplinas recebidas
+    console.log(`Total de disciplinas: ${disciplinas.length}\n`);
     
     if (disciplinas.includes("JavaScript")) {
-        console.log("Aluno cursa JavaScript\n");
+        console.log("Aviso: Aluno cursa JavaScript\n");
     }
     
+    // Adiciona a nova disciplina padrão
     disciplinas.push("Algoritmos");
     
+    console.log("--- Lista de Disciplinas ---");
     for (let i = 0; i < disciplinas.length; i++) {
         const disciplina = disciplinas[i];
         
+        // Ignora disciplinas com texto vazio
         if (disciplina === "") {
             continue;
         }
         
+        // Se encontrar o TCC, encerra a listagem ali
         if (disciplina === "TCC") {
-            console.log("TCC");
-            console.log("\nLaço interrompido");
+            console.log("TCC (Etapa Final)");
+            console.log("\n[Laço interrompido pelo TCC]");
             break;
         }
         
-        console.log(disciplina);
+        console.log(`- ${disciplina}`);
     }
 }
 
-console.log("--- Saída 1 ---");
+console.log("--- Execução 1 ---");
 gerenciarMatriculas(["HTML", "CSS", "JavaScript"]);
 
-console.log("\n--- Saída 2 ---");
+console.log("\n--- Execução 2 ---");
 gerenciarMatriculas(["Banco de Dados", "", "TCC", "Redes"]);
