@@ -1,0 +1,25 @@
+function sistemaBiblioteca(listaAutores, autorBusca) {
+    const autores = listaAutores.split(",");
+
+    autores.forEach(autor => console.log(autor.trim()));
+
+    if (autores.includes(autorBusca)) {
+        console.log("\nAutor encontrado");
+    } else {
+        console.log("\nAutor não encontrado");
+    }
+
+    const formatarLivro = (titulo, autor) => {
+        return `Livro: ${titulo} | Autor: ${autor}`;
+    };
+    
+    console.log(formatarLivro("Dom Casmurro", "Machado de Assis"));
+
+    console.log("\nLista de Autores: " + autores.join(", "));
+}
+
+console.log("--- Saída 1 ---");
+sistemaBiblioteca("Machado de Assis,Clarice Lispector,Monteiro Lobato", "Machado de Assis");
+
+console.log("\n--- Saída 2 ---");
+sistemaBiblioteca("J. K. Rowling,J. R. R. Tolkien", "George R. R. Martin");
